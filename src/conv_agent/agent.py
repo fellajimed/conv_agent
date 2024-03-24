@@ -79,9 +79,12 @@ class ConvAgent:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return
         except (KeyboardInterrupt, EOFError):
-            print("\n")
-            self.formatter.answer("Hope you had fun :) Bye Bye!")
-            sys.exit()
+            res = input("\nDo you really want to exit ([y]/n)? ")
+            if res in ["y", "yes"]:
+                self.formatter.answer("Hope you had fun :) Bye Bye!")
+                sys.exit()
+            else:
+                return
         self.formatter.answer(self.get_answer(input_text))
 
     def start_conversation(self):
