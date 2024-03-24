@@ -31,7 +31,7 @@ class ConvAgent:
 
         self.api_url = f"{HF_API_URL}/{self.model}"
 
-        self.content = (f"you know everything there is to know about: {url}. "
+        self.content = (f"You know everything there is to know about: {url}. "
                         "Stop generating words once the question is answered. "
                         "Give the shortest answer possible.")
         if content_prompt is not None and isinstance(content_prompt, str):
@@ -62,7 +62,7 @@ class ConvAgent:
             "inputs": self.history,
             "role": "system",
             "content": self.content,
-            "max_new_tokens": 5000,
+            "max_new_tokens": 10000,
         }
 
         response = (requests.post(self.api_url, headers=HEADERS, json=payload)
