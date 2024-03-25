@@ -9,7 +9,7 @@ def main():
     parser.add_argument('--content', type=str, default=None)
     parser.add_argument('--plain', action='store_true')
     parser.add_argument('--width', type=int, default=None)
-    parser.add_argument('-n', type=int, default=None)
+    parser.add_argument('-n', type=int, default=1)
     parser.add_argument('-I', '--interactive', action='store_true')
     parser.add_argument('--prompt', type=str)
 
