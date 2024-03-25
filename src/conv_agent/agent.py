@@ -16,7 +16,7 @@ HF_API_URL = "https://api-inference.huggingface.co/models"
 
 class ConvAgent:
     def __init__(self, url, model=None, content_prompt=None,
-                 width=None, is_table=True):
+                 n=1, width=None, is_table=True):
         self.formatter = QAFormatterIO(is_table=is_table, width=width)
 
         valid_model = self.is_model_valid(model)
@@ -36,6 +36,9 @@ class ConvAgent:
                         "Give the shortest answer possible.")
         if content_prompt is not None and isinstance(content_prompt, str):
             self.content += f" {content_prompt}"
+
+        assert isinstance(n, int) and n > 0
+        self.n = n
 
         self.history = ""
 
@@ -85,7 +88,10 @@ class ConvAgent:
                 sys.exit()
             else:
                 return
-        self.formatter.answer(self.get_answer(input_text))
+        answer = self.get_answer(input_text)
+        for _ in range(self.n - 1):
+            answer += self.get_answer('')
+        self.formatter.answer(answer)
 
     def start_conversation(self):
         while True:
