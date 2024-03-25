@@ -80,7 +80,7 @@ class ConvAgent:
                 return
         except (KeyboardInterrupt, EOFError):
             res = input("\nDo you really want to exit ([y]/n)? ")
-            if res in ["y", "yes"]:
+            if res in ["", "y", "yes"]:
                 self.formatter.answer("Hope you had fun :) Bye Bye!")
                 sys.exit()
             else:
