@@ -11,6 +11,8 @@ python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
+As the inference API of HF is used, setting the variable `API_HF_TOKEN` is required (in a `.env` file for example).
+
 # Usage
 
 CLI:
