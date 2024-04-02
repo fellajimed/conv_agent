@@ -15,7 +15,7 @@ HF_API_URL = "https://api-inference.huggingface.co/models"
 
 
 class ConvAgent:
-    def __init__(self, url, model=None, content_prompt=None,
+    def __init__(self, about, model=None, content_prompt=None,
                  n=1, width=None, is_table=True):
         self.formatter = QAFormatterIO(is_table=is_table, width=width)
 
@@ -31,7 +31,7 @@ class ConvAgent:
 
         self.api_url = f"{HF_API_URL}/{self.model}"
 
-        self.content = (f"You know everything there is to know about: {url}. "
+        self.content = (f"You know everything there is to know about {about}. "
                         "Stop generating words once the question is answered. "
                         "Give the shortest answer possible.")
         if content_prompt is not None and isinstance(content_prompt, str):

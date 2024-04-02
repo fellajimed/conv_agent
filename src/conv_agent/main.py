@@ -4,7 +4,7 @@ from .agent import ConvAgent
 
 def main():
     parser = argparse.ArgumentParser('main')
-    parser.add_argument('--url', type=str, required=True)
+    parser.add_argument('--about', type=str, required=True)
     parser.add_argument('--model', type=str, default=None)
     parser.add_argument('--content', type=str, default=None)
     parser.add_argument('--plain', action='store_true')
@@ -15,7 +15,7 @@ def main():
 
     args = parser.parse_args()
 
-    agent = ConvAgent(url=args.url, model=args.model,
+    agent = ConvAgent(about=args.about, model=args.model,
                       content_prompt=args.content, n=args.n,
                       width=args.width, is_table=not args.plain)
 

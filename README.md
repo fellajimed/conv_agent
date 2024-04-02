@@ -1,5 +1,5 @@
 # Overview
-Using models from `Hugging Face`, with the interactive API, get insights about a given url.
+Using models from `Hugging Face`, with the interactive API, get insights about a given topic/url.
 
 # Setup
 
@@ -26,12 +26,12 @@ The flag `-I` allows to run the code in an interactive mode. For a single prompt
 
 To ask questions, in an interactive mode, about Apple from its wikipedia page, with additional content from the official Apple website
 ```bash
-conv_agent --url "https://en.wikipedia.org/wiki/Apple_Inc." --content "You can also take a look at: https://www.apple.com/" -I
+conv_agent --about "https://en.wikipedia.org/wiki/Apple_Inc." --content "You can also take a look at: https://www.apple.com/" -I
 ```
 
 To ask a single question:
 ```bash
-conv_agent --url "https://en.wikipedia.org/wiki/Apple_Inc." --content "You can also take a look at: https://www.apple.com/" --prompt "When was the first iPhone introduced?"
+conv_agent --about "https://en.wikipedia.org/wiki/Apple_Inc." --content "You can also take a look at: https://www.apple.com/" --prompt "When was the first iPhone introduced?"
 ```
 
 Outputs:
